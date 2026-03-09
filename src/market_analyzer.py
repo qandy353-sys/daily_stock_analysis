@@ -297,7 +297,7 @@ class MarketAnalyzer:
         
         logger.info("[大盘] 调用大模型生成复盘报告...")
         # Use the public generate_text() entry point — never access private analyzer attributes.
-        review = self.analyzer.generate_text(prompt, max_tokens=2048, temperature=0.7)
+        review = self.analyzer.generate_text(prompt, max_tokens=8192, temperature=0.7)
 
         if review:
             logger.info("[大盘] 复盘报告生成成功，长度: %d 字符", len(review))
@@ -582,7 +582,7 @@ Output the report content directly, no extra commentary.
 （分析领涨领跌板块背后的逻辑和驱动因素）
 （重点：在每个领涨板块后，推荐 2-3 只该板块的代表性股票，包括股票代码和简短理由，格式示例：
 📍 领涨板块A：600123（板块龙头，涨幅最大）、002456（成交活跃，资金流入明显）
-📍 领涨板块B：300789、600234
+📍 领涨板块B：300789、600234)
 
 ### 五、后市展望
 （结合当前走势和新闻，给出明日市场预判）
